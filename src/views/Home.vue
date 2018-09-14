@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul class="operators">
+      <li @click="setOperator('-')">-</li>
+      <li @click="setOperator('+')">+</li>
+      <li @click="setOperator('*')">*</li>
+      <li @click="setOperator('/')">/</li>
+    </ul>
+    <operator v-if="operator" :operator="operator" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import operator from '@/components/operator.vue';
 
 export default {
   name: 'home',
   components: {
-    HelloWorld,
+    operator,
+  },
+  data() {
+    return {
+      operator: null,
+    };
+  },
+  methods: {
+    setOperator(op) {
+      this.operator = op;
+    },
   },
 };
 </script>
