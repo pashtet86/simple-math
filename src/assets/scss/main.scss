@@ -60,6 +60,7 @@ button {
 
   &:active {
     box-shadow: inset 1px 1px 5px #ccc;
+    background: #000;
   }
 }
 
@@ -71,16 +72,4 @@ button {
   color: green;
 }
 
-.operators {
-  font-size: 30px;
-  list-style-type: none;
-
-
-}
-
-.operators li {
-  display: block;
-  border: 1px solid #000;
-  width: 30px;
-  height: 30px;
-}
+@import url(./operators.scss);
