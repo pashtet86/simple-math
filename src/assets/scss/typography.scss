@@ -1,0 +1,8 @@
+@include font-face('chalkfreehand', '../fonts/chalk-freehand', normal, null, woff);
+// @include font-face('chalk', '../fonts/PWChalk', normal, null, ttf);
+@include font-face('lumberjack', '../fonts/lumberjack', normal, null, ttf woff);
+@include font-face('eraser', '../fonts/eraser', normal, null, ttf);
+
+body {
+  font-family: 'lumberjack', sans-serif;
+}

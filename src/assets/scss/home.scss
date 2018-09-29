@@ -1,0 +1,52 @@
+@import 'mixins';
+
+.main-wrapper {
+  @include flex-container(row, center, center);
+  height: 100vh;
+}
+
+.desk {
+  background: url(../imgs/desk.png) no-repeat;
+  background-size: 100% auto;
+  width: 1093px;
+  max-width: 100vw;
+  height: 0;
+  padding-bottom: 77%;
+  position: relative;
+
+  &__in {
+    @include flex-container(row, center, center);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    padding: 50px;
+  }
+
+  &__top {
+    position: absolute;
+    @include flex-container(row, flex-start, center);
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 70px;
+  }
+}
+
+.start-btn {
+  cursor: pointer;
+  font-size: 68px;
+  line-height: 0.94;
+  letter-spacing: -1.4px;
+  color: #120a0a;
+  line-height: 95px;
+  padding: 0 50px;
+  border-left: 3px dashed #fefefe;
+  border-right: 3px dashed #fefefe;
+  flex-grow: 0;
+
+  &:hover {
+    color: #fff;
+  }
+}

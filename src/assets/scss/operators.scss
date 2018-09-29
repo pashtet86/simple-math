@@ -1,0 +1,102 @@
+ul.operators {
+  @include flex-container(row, center, center);
+  font-family: 'chalkfreehand';
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  width: 33%;
+
+  li {
+    @include flex-container(row, center, center);
+    text-align: center;
+    width: 82px;
+    height: 82px;
+
+    &.active {
+      background: url(/imgs/dash-line.png);
+    }
+  }
+
+  img {
+    cursor: pointer;
+    padding: 20px;
+
+    &:active {
+      transform: scale(.8);
+    }
+  }
+}
+
+.middle-section {
+
+}
+
+.current-example {
+  @include flex-container(row, center, center);
+  font-family: 'chalkfreehand';
+  font-size: 150px;
+  color: white;
+  text-align: center;
+
+  span {
+    line-height: 75px;
+    height: 90px;
+  }
+
+  img {
+    margin: 0 40px;
+    display: block;
+  }
+
+  input {
+    color: white;
+    background: none;
+    appearance: none;
+    font-family: 'chalkfreehand';
+    font-size: 150px;
+    border: 0;
+    width: 200px;
+    outline: none;
+    border-bottom: 5px solid #fff;
+    text-align: center;
+    height: 120px;
+  }
+}
+
+.check-btn-wrapper {
+  text-align: center;
+}
+
+.check-btn {
+  font-size: 68px;
+  letter-spacing: -1.4px;
+  margin-top: 30px;
+  color: #00a8ff;
+  background: none;
+  padding: 30px 50px;
+  border: solid 4px #fefefe;
+  border-radius: 20px;
+  font-family: 'lumberjack', sans-serif;
+  line-height: 1;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(.9);
+  }
+}
+
+.answers-list {
+  @include flex-container(row, center, center);
+  list-style-type: none;
+  position: absolute;
+  left: 50px;
+  bottom: 120px;
+
+  li {
+    margin-right: 12px;
+  }
+
+  img {
+    display: block;
+  }
+}
