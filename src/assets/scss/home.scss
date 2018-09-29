@@ -2,16 +2,18 @@
 
 .main-wrapper {
   @include flex-container(row, center, center);
+  margin: auto;
   height: 100vh;
+  width: 1093px;
+  max-width: 100vmin;
 }
 
 .desk {
   background: url(../imgs/desk.png) no-repeat;
   background-size: 100% auto;
-  width: 1093px;
-  max-width: 100vw;
+  width: 100%;
   height: 0;
-  padding-bottom: 77%;
+  padding-top: 77%;
   position: relative;
 
   &__in {
@@ -21,30 +23,36 @@
     right: 0;
     bottom: 0;
     top: 0;
-    padding: 50px;
+    padding: 3vmin;
   }
 
   &__top {
     position: absolute;
     @include flex-container(row, flex-start, center);
     top: 0;
-    left: 0;
-    right: 0;
-    padding-top: 70px;
+    left: 5vmin;
+    right: 5vmin;
+    padding-top: 5vmin;
+
+    .wrapper {
+      width: 33%;
+      text-align: center;
+    }
   }
 }
 
 .start-btn {
   cursor: pointer;
-  font-size: 68px;
+  font-size: 8vmin;
   line-height: 0.94;
   letter-spacing: -1.4px;
   color: #120a0a;
-  line-height: 95px;
-  padding: 0 50px;
+  line-height: 8vmin;
+  padding: 0 4vmin;
   border-left: 3px dashed #fefefe;
   border-right: 3px dashed #fefefe;
   flex-grow: 0;
+  display: inline-block;
 
   &:hover {
     color: #fff;

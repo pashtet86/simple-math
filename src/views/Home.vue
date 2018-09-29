@@ -3,20 +3,24 @@
     <div class="desk">
       <div class="desk__in">
         <div class="desk__top">
-          <ul class="operators">
-            <li
-              v-for="(op, index)
-              in operatorsList"
-              :key="index"
-              :class="{ active: operator === op.op }"
-            >
-              <img
+          <div class="wrapper">
+            <ul class="operators">
+              <li
+                v-for="(op, index)
+                in operatorsList"
+                :key="index"
+                :class="{ active: operator === op.op }"
                 @click="setOperator(op.op)"
-                :src="`/imgs/operators/${op.img}.png`"
-              />
-            </li>
-          </ul>
-          <a class="start-btn">Start</a>
+              >
+                <img
+                  :src="`/imgs/operators/${op.img}.png`"
+                />
+              </li>
+            </ul>
+          </div>
+          <div class="wrapper">
+            <a class="start-btn">Start</a>
+          </div>
           <!-- <h1>
             Range
             <input type="number" v-model.number="MIN" width="10">
@@ -25,15 +29,6 @@
           </h1> -->
         </div>
         <form @submit.prevent class="middle-section" v-if="operator">
-          <!-- <strong>history:</strong>
-          <ul v-if="historyList.length">
-            <li
-              v-for="(ex, index) in historyList"
-              :key="index"
-              :class="[ ex.correct ? 'green' : 'red' ]"
-              v-text="ex.text"
-            />
-          </ul> -->
           <div class="current-example">
             <span>{{numberOne || '?'}}</span>
             <img :src="`/imgs/operators/${imgName}.png`" />

@@ -2,24 +2,28 @@ ul.operators {
   @include flex-container(row, center, center);
   font-family: 'chalkfreehand';
   display: flex;
+  align-items: stretch;
   justify-content: center;
   list-style-type: none;
-  width: 33%;
+  padding: 0;
 
   li {
     @include flex-container(row, center, center);
     text-align: center;
-    width: 82px;
-    height: 82px;
+    width: 25%;
+    padding: 5%;
+    box-sizing: border-box;
+    cursor: pointer;
 
     &.active {
-      background: url(/imgs/dash-line.png);
+      background: url(/imgs/dash-line.png) center center no-repeat;
+      background-size: contain;
     }
   }
 
   img {
-    cursor: pointer;
-    padding: 20px;
+    max-width: 100%;
+    height: auto;
 
     &:active {
       transform: scale(.8);
@@ -27,14 +31,10 @@ ul.operators {
   }
 }
 
-.middle-section {
-
-}
-
 .current-example {
   @include flex-container(row, center, center);
   font-family: 'chalkfreehand';
-  font-size: 150px;
+  font-size: 12vmin;
   color: white;
   text-align: center;
 
@@ -44,8 +44,10 @@ ul.operators {
   }
 
   img {
-    margin: 0 40px;
+    margin: 0 3vmin;
     display: block;
+    max-width: 4vmin;
+    height: auto;
   }
 
   input {
@@ -53,13 +55,13 @@ ul.operators {
     background: none;
     appearance: none;
     font-family: 'chalkfreehand';
-    font-size: 150px;
+    font-size: 12vmin;
     border: 0;
-    width: 200px;
+    width: 15vmin;
     outline: none;
     border-bottom: 5px solid #fff;
     text-align: center;
-    height: 120px;
+    height: 10vmin;
   }
 }
 
@@ -68,17 +70,22 @@ ul.operators {
 }
 
 .check-btn {
-  font-size: 68px;
+  font-size: 7vmin;
   letter-spacing: -1.4px;
   margin-top: 30px;
   color: #00a8ff;
   background: none;
-  padding: 30px 50px;
+  padding: 3vmin 4vmin;
   border: solid 4px #fefefe;
   border-radius: 20px;
   font-family: 'lumberjack', sans-serif;
   line-height: 1;
   cursor: pointer;
+
+  &:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+  }
 
   &:active {
     transform: scale(.9);
@@ -89,8 +96,8 @@ ul.operators {
   @include flex-container(row, center, center);
   list-style-type: none;
   position: absolute;
-  left: 50px;
-  bottom: 120px;
+  left: 4vmin;
+  bottom: 8vmin;
 
   li {
     margin-right: 12px;
@@ -98,5 +105,6 @@ ul.operators {
 
   img {
     display: block;
+    max-width: 2vmin;
   }
 }
