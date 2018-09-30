@@ -18,9 +18,13 @@
               </li>
             </ul>
           </div>
-          <div class="wrapper">
+          <div class="wrapper" v-if="false">
             <a class="start-btn">Start</a>
           </div>
+          <!-- <Countdown
+            :endDate="Date.now() + 1000"
+            @ended="timerEnded"
+          /> -->
           <!-- <h1>
             Range
             <input type="number" v-model.number="MIN" width="10">
@@ -51,10 +55,6 @@
             :disabled="!historyList.length"
             v-text="'Clear all'"
           /> -->
-          <!-- <div class="tcenter" v-if="historyList.length">
-            <span class="green" v-if="correct">You are right!</span>
-            <span class="red" v-else>Wrong answer</span>
-          </div> -->
           <ul v-if="historyList.length" class="answers-list">
             <li
               v-for="(ex, index) in historyList"
@@ -71,8 +71,12 @@
 </template>
 
 <script>
+import Countdown from '@/helpers/Countdown.vue';
+
 export default {
-  name: 'operator',
+  name: 'board',
+
+  components: { Countdown },
 
   data() {
     return {
@@ -86,16 +90,12 @@ export default {
       correctCount: 0,
       operator: null,
       operatorsList: [
-        { img: 'divide', op: '/' },
+        // { img: 'divide', op: '/' },
         { img: 'multiply', op: '*' },
         { img: 'minus', op: '-' },
         { img: 'plus', op: '+' },
       ],
     };
-  },
-
-  created() {
-    this.getRandom();
   },
 
   computed: {
@@ -145,7 +145,7 @@ export default {
         playSound('no');
       }
 
-      // this.$refs.answer.focus();
+      this.$refs.answer.focus();
       this.historyList.push({
         correct: this.correct,
         text: `${numberOne} ${operator} ${numberTwo} = ${answer}`,
@@ -161,13 +161,17 @@ export default {
 
     getRandom() {
       this.answer = '';
-      // this.$refs.answer.focus();
       this.numberOne = this.createRandom();
       this.numberTwo = this.createRandom();
     },
 
     setOperator(op) {
       this.operator = op;
+      this.getRandom();
+    },
+
+    timerEnded() {
+      console.log('↘️ ', 'yes');
     },
   },
 };
