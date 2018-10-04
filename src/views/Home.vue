@@ -21,10 +21,10 @@
           <div class="wrapper" v-if="false">
             <a class="start-btn">Start</a>
           </div>
-          <!-- <Countdown
-            :endDate="Date.now() + 1000"
+          <Countdown
+            :endDate="Date.now() + 100000"
             @ended="timerEnded"
-          /> -->
+          />
           <!-- <h1>
             Range
             <input type="number" v-model.number="MIN" width="10">

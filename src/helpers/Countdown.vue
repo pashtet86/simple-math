@@ -1,13 +1,15 @@
-<template lang="html">
-  <div v-if="isEnded">
-    Ended.
-  </div>
+<template>
+  <div class='coutdown'>
+    <div v-if="isEnded">
+      Ended.
+    </div>
 
-  <div v-else>
-    <div v-if="days">Days: {{ days }}</div>
-    <div v-if="hours">Hours: {{ hours }}</div>
-    <div v-if="minutes">Minutes: {{ minutes }}</div>
-    <div>Seconds: {{ seconds }}</div>
+    <div v-else>
+      <div v-if="days">Days: {{ days }}</div>
+      <div v-if="hours">Hours: {{ hours }}</div>
+      <div v-if="minutes">Minutes: {{ minutes }}</div>
+      <div>Seconds: {{ seconds }}</div>
+    </div>
   </div>
 </template>
 
@@ -58,3 +60,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  .coutdown {
+    font-size: 35px;
+    color: #fff;
+  }
+</style>
