@@ -18,13 +18,19 @@
               </li>
             </ul>
           </div>
-          <div class="wrapper" v-if="false">
-            <a class="start-btn">Start</a>
+          <div class="wrapper level" >
+            <a @click="changeLevel({ MIN: 1, MAX: 10 })">easy 🤓</a>
+            <a @click="changeLevel({ MIN: 5, MAX: 15 })">hard 😎</a>
           </div>
-          <Countdown
+          <!-- <div class="wrapper">
+            <a class="start-btn" v-if="operator">Start</a>
+            <a class="start-btn" v-if="false">Start</a>
+          </div> -->
+          <!-- <Countdown
+            v-if="coundownOn"
             :endDate="Date.now() + 100000"
             @ended="timerEnded"
-          />
+          /> -->
           <!-- <h1>
             Range
             <input type="number" v-model.number="MIN" width="10">
@@ -83,19 +89,24 @@ export default {
       MIN: 5,
       MAX: 13,
       answer: '',
+      coundownOn: false,
       correct: null,
       historyList: [],
       numberOne: null,
       numberTwo: null,
       correctCount: 0,
-      operator: null,
+      operator: '*',
       operatorsList: [
         // { img: 'divide', op: '/' },
-        { img: 'multiply', op: '*' },
         { img: 'minus', op: '-' },
         { img: 'plus', op: '+' },
+        { img: 'multiply', op: '*' },
       ],
     };
+  },
+
+  mounted() {
+    this.getRandom();
   },
 
   computed: {
@@ -172,6 +183,13 @@ export default {
 
     timerEnded() {
       console.log('↘️ ', 'yes');
+    },
+
+    changeLevel(level) {
+      const { MIN, MAX } = level;
+      this.MIN = MIN;
+      this.MAX = MAX;
+      this.getRandom();
     },
   },
 };
