@@ -72,12 +72,18 @@
           </ul>
         </form>
       </div>
+      <div v-for="(item, index) in test" :key="index">
+        <div>{{item.name}}</div>
+      </div>
     </div>
+
+
   </div>
 </template>
 
 <script>
 import Countdown from '@/helpers/Countdown.vue';
+import axios from 'axios';
 
 export default {
   name: 'board',
@@ -86,6 +92,7 @@ export default {
 
   data() {
     return {
+      test: [],
       MIN: 5,
       MAX: 13,
       answer: '',
@@ -105,8 +112,29 @@ export default {
     };
   },
 
-  mounted() {
+  async mounted() {
     this.getRandom();
+
+    try {
+      // await fetch('https://jsonplaceholder.typicode.com/users');
+      const data = await axios.get('https://jsonplaceholder.typicode.com/users');
+      console.log(data);
+      // .then(function (response) {
+      //   // handle success
+      //   console.log(response);
+      // })
+      // .catch(function (error) {
+      //   // handle error
+      //   console.log(error);
+      // })
+      // .then(function () {
+      //   // always executed
+      // });
+      // console.log(data);
+      this.test = data.data;
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   computed: {
